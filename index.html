@@ -92,13 +92,13 @@
             <div class="Column_1 Column_tall"  style="padding-top: 1%;">
                 <h1>Contact</h1>
                 <!--This specifies where and how to send the form data; we are leaving it blank-->
-                <form action="" method="POST"> <!-- Here we are utilizing a 3rd party service to submit the contact form data, insert your formspree endpoint in the action attribute -->
+                <form action="https://formspree.io/f/xvzbglnn" method="POST"> <!-- Here we are utilizing a 3rd party service to submit the contact form data, insert your formspree endpoint in the action attribute -->
                     <label>Name:</label>
-                        <input type="text" placeholder="Name">
+                        <input type="text" id="Name" name="Name" placeholder="Name" required>
                     <label>Email:</label>
-                        <input type="text" id="Email" name="Email" placeholder="E-mail address">
+                        <input type="text" id="Email" name="Email" placeholder="E-mail address" required>
                     <label>Message:</label>
-                        <input type="text" id="Message" name="Message" placeholder="Message">
+                        <input type="text" id="Message" name="Message" placeholder="Message" required>
                         <input type="submit" value="SUBMIT">
                 </form>
             </div>
