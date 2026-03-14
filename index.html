@@ -6,19 +6,18 @@
         <meta name="viewport" content="width=device-width" />
         <title>Rexel Cartalla</title>
         <link rel="stylesheet" type="text/css" href="stylesheet/portfolio.css">
-
-        <script>
-            function submit_form() {
-            document.formu1.submit();
-            document.formu1.reset(); 
-        }
-        </script>
+        <script src="js/portfolio.js" defer></script>
     </head>
 
     <!--Body-->
     <body class="Background">
-
-        
+        <script>
+            document.body.classList.add('fade-out');
+            
+            window.addEventListener('DOMContentLoaded', () => {
+                document.body.classList.remove('fade-out');
+            });
+        </script>        
 
         <!--Navbar-->
         <div class="Navbar">
@@ -45,7 +44,7 @@
         <div class="Video_Text">
             <h1 class="white-text">Rex's Portfolio</h1>
             <strong>
-                <p class="center">
+                <p class="center portfolio">
                     <br> Hi. My name is Rex. Welcome to my portfolio website. On it, I will tell you about my background and experience.
                     <br>
                     <br> Thank you for stopping by and enjoy! 
@@ -62,7 +61,7 @@
             <!--Right column-->
             <div class="Column_1 Column_tall" style="padding-top: 1%;">
                 <h1>About</h1>
-                <p>
+                <p class="about">
                     I am a senior software engineer and technical lead with over a decade of experience building scalable applications and leading development teams in enterprise environments. 
                         <br>My work focuses on modern .NET development, cloud-ready architecture, secure API integration, and practical system design. 
                         <br>I combine hands-on engineering expertise with architectural thinking to deliver reliable, high-quality software solutions.
@@ -101,18 +100,43 @@
             <div class="Column_1 Column_tall"  style="padding-top: 1%;">
                 <h1>Contact</h1>
                 <!--This specifies where and how to send the form data; we are leaving it blank-->
-                <form name="formu1" action="https://formspree.io/f/xvzbglnn" method="POST"> <!-- Here we are utilizing a 3rd party service to submit the contact form data, insert your formspree endpoint in the action attribute -->
-                    <label>Name:</label>
+                <form name="formu1" action="https://formspree.io/f/xvzbglnn" onsubmit="return resetForm()" method="POST"> <!-- Here we are utilizing a 3rd party service to submit the contact form data, insert your formspree endpoint in the action attribute -->
+                    <label for="Name">Name:</label>
                         <input type="text" id="Name" name="Name" placeholder="Name" required>
-                    <label>Email:</label>
-                        <input type="text" id="Email" name="Email" placeholder="E-mail address" required>
-                    <label>Message:</label>
+                    <label for="Email">Email:</label>
+                        <input type="email" id="Email" name="Email" placeholder="E-mail address" required>
+                    <label for="Phone">Phone: </label>
+                        <input type="tel" id="Phone" name="Phone" placeholder="123-456-7890" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>                        
+                    <label for="Message">Message:</label>
                         <input type="text" id="Message" name="Message" placeholder="Message" required>
-                        <input type="submit" value="SUBMIT" onclick="submit_form();" />
-                         <!-- <input type="button" value="Send" onclick="submit_form();" /> -->
+                        <input type="submit" value="SUBMIT">
                 </form>
             </div>
         </div>
+
+        <!-- A button to open the popup form -->
+        <!-- <button class="open-button" onclick="openForm()">Contact Form</button> -->
+
+        <!-- The form -->
+        <!-- <div class="form-popup" id="contactForm">
+            <form class="form-container" name="formu1" action="https://formspree.io/f/xvzbglnn" onsubmit="return resetForm()" method="POST">
+                <h1>Contact</h1>
+                <label for="Name">Name:</label>
+                <input type="text" id="Name" name="Name" placeholder="Name" required>
+                
+                <label for="Email">Email:</label>
+                <input type="email" id="Email" name="Email" placeholder="E-mail address" required>
+                
+                <label for="Phone">Phone: </label><small> Format: 123-456-7890</small>
+                <input type="tel" id="Phone" name="Phone" placeholder="(123) 456-7890" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>                        
+                
+                <label for="Message">Message:</label>
+                <input type="text" id="Message" name="Message" placeholder="Message" required>
+                
+                <button type="submit" class="btn">Submit</button>                
+                <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+            </form>
+        </div> -->
 
         <!--Footer section-->
         <footer>
@@ -129,4 +153,5 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
     </body>
+    
 </html>
